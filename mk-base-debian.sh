@@ -46,9 +46,9 @@ fi
 cd ${ROOTPATH}
 
 echo -e "[DEBUG] check file list"
-ll ./
+ls -l ./
 echo -e "[DEBUG] check file list"
-ll ./ubuntu-build-service/
+ls -l ./ubuntu-build-service/
 echo -e "[DEBUG] check file list"
-ll ./ubuntu-build-service/$RELEASE-$TARGET-$ARCH
+ls -l ./ubuntu-build-service/$RELEASE-$TARGET-$ARCH
 
