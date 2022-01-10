@@ -24,7 +24,8 @@ if [ -e linaro-$RELEASE-alip-*.tar.gz ]; then
 	rm linaro-$RELEASE-alip-*.tar.gz
 fi
 
-root_path=${PWD}
+ROOTPATH=${PWD}
+
 cd ubuntu-build-service/$RELEASE-$TARGET-$ARCH
 
 echo -e "\033[36m Staring Download...... \033[0m"
@@ -42,4 +43,4 @@ else
 	echo -e "\e[31m Failed to run livebuild, please check your network connection. \e[0m"
 fi
 
-cd ${root_path}
+cd ${ROOTPATH}
