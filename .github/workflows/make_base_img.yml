@@ -1,0 +1,37 @@
+name: base_version
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'build the rootfs of rk3568'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
+
+  repository_dispatch:
+
+jobs:
+  build_rootfs:
+    runs-on: ubuntu-18.04
+    steps:
+    - run: |
+        sudo apt-get update
+        sudo apt-get install binfmt-support qemu-user-static python-dbus u-boot-tools python-debian python-apt dh-python
+        sudo apt-get install pigz
+        wget http://launchpadlibrarian.net/109052632/python-support_1.0.15_all.deb
+        sudo dpkg -i python-support_1.0.15_all.deb
+        git clone https://github.com/rockchip-linux/rk-rootfs-build
+        cd rk-rootfs-build
+        sudo dpkg -i ubuntu-build-service/packages/*
+        sudo apt-get install -f
+        RELEASE=buster TARGET=base ARCH=arm64 ./mk-base-debian.sh
+        ./mk-image.sh
+        pigz -K --best -c linaro-rootfs.img > result.gz
+    - uses: actions/upload-artifact@v2
+      with:
+        name: image
+        path: rk-rootfs-build/result.gz
