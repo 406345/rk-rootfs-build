@@ -18,6 +18,7 @@ jobs:
   build_rootfs:
     runs-on: ubuntu-18.04
     steps:
+    - uses: actions/checkout@v2
     - run: |
         sudo apt-get update
         sudo apt-get install binfmt-support qemu-user-static python-dbus u-boot-tools python-debian python-apt dh-python
