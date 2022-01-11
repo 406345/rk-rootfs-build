@@ -44,8 +44,8 @@ else
 	echo -e "\e[31m Failed to run livebuild, please check your network connection. \e[0m"
 fi
 
-echo "Move binary folder to root"
+echo -e "Move binary folder to root"
 mv ./binary/ ${ROOTPATH}/
 
-echo "Switch to root!"
+echo -e "Switch to root!"
 cd ${ROOTPATH}
