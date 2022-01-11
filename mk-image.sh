@@ -19,7 +19,7 @@ fi
 if [ ! $TARGET ]; then
 	TARGET='base'
 fi
-
+echo arch=${ARCH},release=${RELEASE},target=${TARGET} 
 TARGET_ROOTFS_DIR=./ubuntu-build-service/$RELEASE-$TARGET-$ARCH/binary
 MOUNTPOINT=./rootfs
 ROOTFSIMAGE=linaro-rootfs.img
