@@ -24,12 +24,9 @@ if [ -e linaro-$RELEASE-alip-*.tar.gz ]; then
 	rm linaro-$RELEASE-alip-*.tar.gz
 fi
 
-ROOTPATH=${PWD}
-
 cd ubuntu-build-service/$RELEASE-$TARGET-$ARCH
 
-echo -e "\033[36m Staring Download...... \033[0m"
-echo -e "root path:"${ROOTPATH}
+echo -e "\033[36m Staring Download...... \033[0m" 
 
 make clean
 
@@ -43,9 +40,4 @@ if [ -e linaro-$RELEASE-alip-*.tar.gz ]; then
 else
 	echo -e "\e[31m Failed to run livebuild, please check your network connection. \e[0m"
 fi
-
-echo -e "Move binary folder to root"
-mv ./binary/ ${ROOTPATH}/
-
-echo -e "Switch to root!"
-cd ${ROOTPATH}
+ 
