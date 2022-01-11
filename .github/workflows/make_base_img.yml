@@ -24,8 +24,7 @@ jobs:
         sudo apt-get install pigz
         wget http://launchpadlibrarian.net/109052632/python-support_1.0.15_all.deb
         sudo dpkg -i python-support_1.0.15_all.deb  
-        ls -l ./
-        cd rk-rootfs-build
+        ls -l ./ 
         sudo dpkg -i ubuntu-build-service/packages/*
         sudo apt-get install -f
         RELEASE=buster TARGET=base ARCH=arm64 ./mk-base-debian.sh
