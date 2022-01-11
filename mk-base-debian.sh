@@ -43,12 +43,6 @@ else
 	echo -e "\e[31m Failed to run livebuild, please check your network connection. \e[0m"
 fi
 
+mv ./binary/ ${ROOTPATH}/
+
 cd ${ROOTPATH}
-
-echo -e "[DEBUG] check file list"
-ls -l ./
-echo -e "[DEBUG] check file list"
-ls -l ./ubuntu-build-service/
-echo -e "[DEBUG] check file list"
-ls -l ./ubuntu-build-service/$RELEASE-$TARGET-$ARCH
-
