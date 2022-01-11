@@ -29,6 +29,7 @@ ROOTPATH=${PWD}
 cd ubuntu-build-service/$RELEASE-$TARGET-$ARCH
 
 echo -e "\033[36m Staring Download...... \033[0m"
+echo -e "root path:"${ROOTPATH}
 
 make clean
 
