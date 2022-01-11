@@ -1,10 +1,30 @@
 #!/bin/bash -e
 
-TARGET_ROOTFS_DIR=./binary
+if [ "$RELEASE" == "stretch" ]; then
+	RELEASE='stretch'
+elif [ "$RELEASE" == "buster" ]; then
+	RELEASE='buster'
+else
+    echo -e "\033[36m please input the os type,stretch or buster...... \033[0m"
+fi
+
+if [ "$ARCH" == "armhf" ]; then
+	ARCH='armhf'
+elif [ "$ARCH" == "arm64" ]; then
+	ARCH='arm64'
+else
+    echo -e "\033[36m please input the os type,armhf or arm64...... \033[0m"
+fi
+
+if [ ! $TARGET ]; then
+	TARGET='base'
+fi
+
+TARGET_ROOTFS_DIR=./ubuntu-build-service/$RELEASE-$TARGET-$ARCH/binary
 MOUNTPOINT=./rootfs
 ROOTFSIMAGE=linaro-rootfs.img
-
-echo Making rootfs!
+ 
+echo -e "Making rootfs!"
 
 if [ -e ${ROOTFSIMAGE} ]; then
 	rm ${ROOTFSIMAGE}
