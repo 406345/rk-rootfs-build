@@ -29,7 +29,7 @@ jobs:
         sudo dpkg -i ubuntu-build-service/packages/*
         sudo apt-get install -f
         RELEASE=buster TARGET=base ARCH=arm64 ./mk-base-debian.sh
-        ./mk-image.sh
+        RELEASE=buster TARGET=base ARCH=arm64 ./mk-image.sh
         pigz -K --best -c linaro-rootfs.img > result.gz
     - uses: actions/upload-artifact@v2
       with:
