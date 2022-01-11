@@ -23,8 +23,8 @@ jobs:
         sudo apt-get install binfmt-support qemu-user-static python-dbus u-boot-tools python-debian python-apt dh-python
         sudo apt-get install pigz
         wget http://launchpadlibrarian.net/109052632/python-support_1.0.15_all.deb
-        sudo dpkg -i python-support_1.0.15_all.deb
-        git clone https://github.com/rockchip-linux/rk-rootfs-build
+        sudo dpkg -i python-support_1.0.15_all.deb  
+        ll ./
         cd rk-rootfs-build
         sudo dpkg -i ubuntu-build-service/packages/*
         sudo apt-get install -f
